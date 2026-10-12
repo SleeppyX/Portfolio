@@ -41,7 +41,7 @@ export const profile = {
   } satisfies Localized,
 
   /** รูปโปรไฟล์ วางไฟล์ไว้ใน public/images/ */
-  avatar: "/images/avatar.webp",
+  avatar: "/images/avatar-glow.webp",
 
   /**
    * ไฟล์ Resume แยกตามภาษา วางไฟล์ไว้ใน public/resume/
