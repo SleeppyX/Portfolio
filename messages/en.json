@@ -1,0 +1,59 @@
+{
+  "Nav": {
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact",
+    "menu": "Menu"
+  },
+  "Hero": {
+    "greeting": "Hi, I'm",
+    "viewProjects": "View projects",
+    "downloadResume": "Download resume"
+  },
+  "About": {
+    "title": "About me"
+  },
+  "Skills": {
+    "title": "Skills"
+  },
+  "Experience": {
+    "title": "Experience & Education",
+    "present": "Present",
+    "work": "Work",
+    "education": "Education"
+  },
+  "Projects": {
+    "title": "Featured projects",
+    "viewAll": "View all projects",
+    "allTitle": "All projects",
+    "allDescription": "Everything I've built, newest first. Filter by technology.",
+    "filterAll": "All",
+    "empty": "No projects match this filter.",
+    "demo": "Live demo",
+    "repo": "Source code",
+    "back": "Back to projects",
+    "fallbackNotice": "This project is not available in Thai yet. Showing the English version."
+  },
+  "Contact": {
+    "title": "Get in touch",
+    "description": "I'm open to new opportunities. Feel free to reach out by email or connect with me online.",
+    "email": "Send email"
+  },
+  "Footer": {
+    "builtWith": "Built with Next.js & Tailwind CSS"
+  },
+  "Theme": {
+    "toggle": "Toggle dark mode"
+  },
+  "Locale": {
+    "switch": "Switch language",
+    "en": "EN",
+    "th": "TH"
+  },
+  "NotFound": {
+    "title": "Page not found",
+    "back": "Back to home"
+  }
+}
