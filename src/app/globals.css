@@ -14,8 +14,8 @@
   --muted: #64748b;
   --border: #e2e8f0;
   --card: #f8fafc;
-  --accent: #047857;
-  --accent-soft: #ecfdf5;
+  --accent: #0969da;
+  --accent-soft: #ddf4ff;
   --accent-foreground: #ffffff;
   /* สีของเทสต์ที่ fail (ใช้ใน Test Runner) */
   --danger: #dc2626;
@@ -27,8 +27,8 @@
   --muted: #8b949e;
   --border: #30363d;
   --card: #161b22;
-  --accent: #3fb950;
-  --accent-soft: #0f2e1a;
+  --accent: #58a6ff;
+  --accent-soft: #0c2d48;
   --accent-foreground: #0d1117;
   --danger: #f85149;
 }

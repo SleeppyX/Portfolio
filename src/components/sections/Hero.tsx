@@ -54,7 +54,12 @@ export async function Hero() {
         </div>
       </div>
 
-      <div className="flex justify-center md:justify-end">
+      <div className="relative flex justify-center md:justify-end">
+        {/* แสงฟ้าจางๆ ด้านหลังหน้าต่าง Test Runner */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-6 inset-y-4 rounded-full bg-accent/40 blur-3xl md:left-auto md:w-md"
+        />
         <TestRunner
           suite={profile.name.en}
           tests={buildTests(locale)}

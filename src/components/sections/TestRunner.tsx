@@ -113,7 +113,7 @@ export function TestRunner({ suite, tests, rerunLabel }: TestRunnerProps) {
   const total = lines.reduce((sum, line) => sum + (line.duration ?? 0), 0);
 
   return (
-    <div className="w-full max-w-md overflow-hidden rounded-xl border border-[#30363d] bg-[#0d1117] font-mono text-sm text-[#e6edf3] shadow-2xl shadow-black/30">
+    <div className="relative w-full max-w-md overflow-hidden rounded-xl border border-[#30363d] bg-[#0d1117] font-mono text-sm text-[#e6edf3] shadow-2xl shadow-black/30">
       {/* แถบหัวหน้าต่าง */}
       <div className="flex items-center gap-2 border-b border-[#30363d] bg-[#161b22] px-4 py-2.5">
         <span aria-hidden className="size-3 rounded-full bg-[#f85149]" />
@@ -126,7 +126,7 @@ export function TestRunner({ suite, tests, rerunLabel }: TestRunnerProps) {
           disabled={!done}
           aria-label={rerunLabel}
           title={rerunLabel}
-          className="rounded px-1.5 text-base leading-none text-[#8b949e] transition-colors hover:text-[#3fb950] focus-visible:outline-2 focus-visible:outline-[#3fb950] disabled:opacity-40"
+          className="rounded px-1.5 text-base leading-none text-[#8b949e] transition-colors hover:text-[#58a6ff] focus-visible:outline-2 focus-visible:outline-[#58a6ff] disabled:opacity-40"
         >
           ↻
         </button>
@@ -134,7 +134,7 @@ export function TestRunner({ suite, tests, rerunLabel }: TestRunnerProps) {
 
       <div className="space-y-1 p-4 sm:p-5">
         <p className="text-[#8b949e]">
-          <span className="text-[#3fb950]">$</span> npx cypress run
+          <span className="text-[#58a6ff]">$</span> npx cypress run
         </p>
         <p className="pt-3 font-semibold">{suite}</p>
 
@@ -173,7 +173,7 @@ export function TestRunner({ suite, tests, rerunLabel }: TestRunnerProps) {
             </span>
           ) : done ? (
             <>
-              <span className="text-[#3fb950]">
+              <span className="text-[#58a6ff]">
                 {tests.length} passing ({(total / 1000).toFixed(2)}s)
               </span>
               {retried && <span className="text-[#8b949e]"> · 1 flaky, retried</span>}
@@ -195,7 +195,7 @@ function StatusIcon({ status }: { status: TestStatus }) {
     );
   }
   const icon = { pending: "○", pass: "✓", fail: "✗" }[status];
-  const color = { pending: "text-[#8b949e]/50", pass: "text-[#3fb950]", fail: "text-[#f85149]" }[
+  const color = { pending: "text-[#8b949e]/50", pass: "text-[#58a6ff]", fail: "text-[#f85149]" }[
     status
   ];
   return (

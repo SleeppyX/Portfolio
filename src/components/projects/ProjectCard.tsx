@@ -28,7 +28,7 @@ export function ProjectCard({ project, locale }: ProjectCardProps) {
         {/* ป้าย passed โผล่ตอน hover/focus */}
         <span
           aria-hidden
-          className="absolute top-3 right-3 translate-y-1 rounded-md bg-[#0d1117]/85 px-2 py-1 font-mono text-xs text-[#3fb950] opacity-0 backdrop-blur transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100"
+          className="absolute top-3 right-3 translate-y-1 rounded-md bg-[#0d1117]/85 px-2 py-1 font-mono text-xs text-[#58a6ff] opacity-0 backdrop-blur transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100"
         >
           ✓ passed
         </span>
