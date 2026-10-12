@@ -21,10 +21,12 @@ export async function Hero() {
 
         <div className="mt-8 flex flex-wrap justify-center gap-3 md:justify-start">
           <ButtonLink href={{ pathname: "/", hash: "projects" }}>{t("viewProjects")}</ButtonLink>
-          <ButtonAnchor variant="outline" href={localize(profile.resume, locale)} download>
-            <DownloadIcon />
-            {t("downloadResume")}
-          </ButtonAnchor>
+          {profile.resume && (
+            <ButtonAnchor variant="outline" href={localize(profile.resume, locale)} download>
+              <DownloadIcon />
+              {t("downloadResume")}
+            </ButtonAnchor>
+          )}
         </div>
       </div>
 

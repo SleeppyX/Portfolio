@@ -8,15 +8,15 @@ export type SkillGroup = {
 /** ทักษะแบ่งเป็นกลุ่ม เพิ่ม/ลบกลุ่มหรือรายการได้เลย */
 export const skillGroups: SkillGroup[] = [
   {
-    title: { en: "Frontend", th: "Frontend" },
-    items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "HTML / CSS"],
+    title: { en: "Quality Assurance", th: "Quality Assurance" },
+    items: ["Cypress", "Postman", "Test Case Design", "Regression Testing", "Issue Logging"],
   },
   {
-    title: { en: "Backend", th: "Backend" },
-    items: ["Node.js", "REST API", "PostgreSQL", "Prisma"],
+    title: { en: "Development", th: "Development" },
+    items: ["HTML / CSS", "JavaScript", "Node.js", "Express", "MongoDB", "Python"],
   },
   {
     title: { en: "Tools", th: "เครื่องมือ" },
-    items: ["Git / GitHub", "Figma", "Vercel", "VS Code"],
+    items: ["Git / GitHub", "VS Code"],
   },
 ];

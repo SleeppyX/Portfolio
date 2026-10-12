@@ -16,26 +16,51 @@ export type ExperienceItem = {
 export const experience: ExperienceItem[] = [
   {
     type: "work",
-    title: { en: "Frontend Developer Intern", th: "นักศึกษาฝึกงาน Frontend" },
-    organization: { en: "Example Tech Co., Ltd.", th: "บริษัท ตัวอย่าง เทค จำกัด" },
-    start: "2025-06",
-    end: "2025-10",
+    title: { en: "Software Developer Intern", th: "นักศึกษาฝึกงาน Software Developer" },
+    // ไม่ระบุชื่อหน่วยงานตามข้อตกลงของโปรเจกต์
+    organization: { en: "Government agency project", th: "โปรเจกต์ของหน่วยงานภาครัฐ" },
+    start: "2026-09",
     description: {
-      en: "Built dashboard features in Next.js and improved page load time by 30%.",
-      th: "พัฒนาฟีเจอร์ Dashboard ด้วย Next.js และลดเวลาโหลดหน้าเว็บลง 30%",
+      en: "Building a web-based case management prototype with role-based workflows, document generation, and dashboards.",
+      th: "พัฒนา prototype ระบบบริหารจัดการคดีบนเว็บ มีขั้นตอนงานแยกตามบทบาทผู้ใช้ ระบบสร้างเอกสาร และ Dashboard",
+    },
+  },
+  {
+    type: "work",
+    title: { en: "QA Engineer Intern", th: "นักศึกษาฝึกงาน QA Engineer" },
+    organization: { en: "Internship", th: "ฝึกงาน" },
+    start: "2025-01",
+    end: "2025-05",
+    description: {
+      en: "Designed and ran test cases from system requirements, automated tests with Cypress, tested APIs with Postman, and logged and verified bugs through regression testing.",
+      th: "ออกแบบและรัน Test Case จาก Requirement ทำ Automated Test ด้วย Cypress ทดสอบ API ด้วย Postman บันทึก Bug และตรวจสอบการแก้ไขด้วย Regression Test",
+    },
+  },
+  {
+    type: "work",
+    title: { en: "Retail Internship", th: "นักศึกษาฝึกงานค้าปลีก" },
+    organization: { en: "7-Eleven", th: "7-Eleven" },
+    start: "2024-03",
+    end: "2024-05",
+    description: {
+      en: "Handled customers, the point-of-sale system, and delivery orders during busy hours.",
+      th: "ดูแลลูกค้า ระบบขายหน้าร้าน และออเดอร์เดลิเวอรีในช่วงเวลาเร่งด่วน",
     },
   },
   {
     type: "education",
     title: {
-      en: "B.Sc. Computer Science",
-      th: "วิทยาศาสตรบัณฑิต สาขาวิทยาการคอมพิวเตอร์",
+      en: "B.Eng. Computer Engineering and Artificial Intelligence",
+      th: "วิศวกรรมศาสตรบัณฑิต สาขาวิศวกรรมคอมพิวเตอร์และปัญญาประดิษฐ์",
     },
-    organization: { en: "Example University", th: "มหาวิทยาลัยตัวอย่าง" },
-    start: "2022-06",
+    organization: {
+      en: "Panyapiwat Institute of Management (PIM)",
+      th: "สถาบันการจัดการปัญญาภิวัฒน์ (PIM)",
+    },
+    start: "2023-06",
     description: {
-      en: "Focused on software engineering and human-computer interaction.",
-      th: "เน้นวิศวกรรมซอฟต์แวร์และการออกแบบปฏิสัมพันธ์ระหว่างคนกับคอมพิวเตอร์",
+      en: "Faculty of Engineering and Technology. GPAX 3.64.",
+      th: "คณะวิศวกรรมศาสตร์และเทคโนโลยี เกรดเฉลี่ยสะสม 3.64",
     },
   },
 ];

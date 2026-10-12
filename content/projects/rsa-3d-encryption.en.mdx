@@ -1,0 +1,23 @@
+---
+title: 3D Model Encryption (RSA)
+summary: Python scripts that encrypt and decrypt 3D model files (.glb) with hybrid RSA-OAEP and AES-256-GCM encryption.
+cover: /images/projects/rsa-3d-encryption.svg
+tags: [Python, Cryptography, Security]
+date: "2026-05"
+featured: true
+repo: https://github.com/SleeppyX/encrypt-decrypt-3D-model
+---
+
+## Overview
+
+A small security project that protects 3D model files. RSA alone can only encrypt
+a few hundred bytes, so the scripts use hybrid encryption.
+
+## How it works
+
+1. Generate a 2048-bit RSA key pair
+2. Encrypt the model with a random AES-256-GCM key, which also detects tampering
+3. Encrypt that AES key with the RSA public key (OAEP padding with SHA-256)
+4. Decrypt in reverse with the private key and get back an identical `.glb` file
+
+Tested with the Stanford Bunny model.

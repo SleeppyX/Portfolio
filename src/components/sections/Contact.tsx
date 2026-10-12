@@ -21,31 +21,37 @@ export async function Contact() {
             <MailIcon />
             {t("email")}
           </ButtonAnchor>
-          <ButtonAnchor variant="outline" href={localize(profile.resume, locale)} download>
-            <DownloadIcon />
-            {tHero("downloadResume")}
-          </ButtonAnchor>
+          {profile.resume && (
+            <ButtonAnchor variant="outline" href={localize(profile.resume, locale)} download>
+              <DownloadIcon />
+              {tHero("downloadResume")}
+            </ButtonAnchor>
+          )}
         </div>
 
         <div className="mt-6 flex justify-center gap-4 text-muted">
-          <a
-            href={profile.socials.github}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="GitHub"
-            className="hover:text-accent"
-          >
-            <GithubIcon width={22} height={22} />
-          </a>
-          <a
-            href={profile.socials.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="LinkedIn"
-            className="hover:text-accent"
-          >
-            <LinkedinIcon width={22} height={22} />
-          </a>
+          {profile.socials.github && (
+            <a
+              href={profile.socials.github}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
+              className="hover:text-accent"
+            >
+              <GithubIcon width={22} height={22} />
+            </a>
+          )}
+          {profile.socials.linkedin && (
+            <a
+              href={profile.socials.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
+              className="hover:text-accent"
+            >
+              <LinkedinIcon width={22} height={22} />
+            </a>
+          )}
         </div>
       </div>
     </Section>
