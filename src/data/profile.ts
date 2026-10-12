@@ -51,8 +51,27 @@ export const profile = {
 
   email: "sawarutreal@gmail.com",
 
-  /** ช่องทางโซเชียล ลบบรรทัดไหนออก ไอคอนนั้นจะไม่แสดง */
+  /** ข้อความสถานะใต้ชื่อบนหน้า Bio (มีจุดกะพริบ) */
+  status: {
+    en: "Open to full-time roles in 2027",
+    th: "พร้อมร่วมงานประจำ ปี 2027",
+  } satisfies Localized,
+
+  /**
+   * ช่องทางโซเชียล ใช้ทั้งหน้า Bio และส่วน Contact ท้ายหน้า Portfolio
+   * ลบบรรทัดไหนออก ปุ่ม/ไอคอนนั้นจะไม่แสดง
+   */
   socials: {
     github: "https://github.com/SleeppyX",
-  } as { github?: string; linkedin?: string },
+    instagram: "https://www.instagram.com/mmsf_05/",
+    facebook: "https://www.facebook.com/sawarut.songmueang.3",
+    /** Discord ไม่มีลิงก์โปรไฟล์จาก username ปุ่มจึงคัดลอก username แทน */
+    discord: "seeker_ss",
+  } as {
+    github?: string;
+    instagram?: string;
+    facebook?: string;
+    discord?: string;
+    linkedin?: string;
+  },
 };

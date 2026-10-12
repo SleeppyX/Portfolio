@@ -56,5 +56,14 @@
   "NotFound": {
     "title": "Page not found",
     "back": "Back to home"
+  },
+  "Portfolio": {
+    "title": "Portfolio"
+  },
+  "Bio": {
+    "portfolio": "Portfolio",
+    "portfolioHint": "Projects, skills & experience",
+    "copy": "Click to copy username",
+    "copied": "Copied!"
   }
 }

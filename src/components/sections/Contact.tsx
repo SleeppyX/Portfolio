@@ -1,13 +1,16 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import { ButtonAnchor } from "@/components/ui/Button";
-import { DownloadIcon, GithubIcon, LinkedinIcon, MailIcon } from "@/components/ui/icons";
+import { CopyButton } from "@/components/bio/CopyButton";
+import { DownloadIcon, MailIcon } from "@/components/ui/icons";
 import { Section } from "@/components/ui/Section";
+import { getSocialLinks } from "@/components/ui/socials";
 import { profile } from "@/data/profile";
 import { localize } from "@/lib/localize";
 
 export async function Contact() {
   const t = await getTranslations("Contact");
   const tHero = await getTranslations("Hero");
+  const tBio = await getTranslations("Bio");
   const locale = await getLocale();
 
   return (
@@ -29,29 +32,34 @@ export async function Contact() {
           )}
         </div>
 
-        <div className="mt-6 flex justify-center gap-4 text-muted">
-          {profile.socials.github && (
-            <a
-              href={profile.socials.github}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="GitHub"
-              className="hover:text-accent"
-            >
-              <GithubIcon width={22} height={22} />
-            </a>
-          )}
-          {profile.socials.linkedin && (
-            <a
-              href={profile.socials.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="LinkedIn"
-              className="hover:text-accent"
-            >
-              <LinkedinIcon width={22} height={22} />
-            </a>
-          )}
+        {/* ไอคอนทุกช่องทาง (ยกเว้นอีเมลที่มีปุ่มด้านบนแล้ว) ข้อมูลชุดเดียวกับหน้า Bio */}
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-muted">
+          {getSocialLinks()
+            .filter((link) => link.id !== "email")
+            .map(({ id, label, handle, href, copyText, Icon }) =>
+              copyText ? (
+                <CopyButton
+                  key={id}
+                  text={copyText}
+                  copiedLabel={tBio("copied")}
+                  title={`${label}: ${handle} (${tBio("copy")})`}
+                  className="inline-flex items-center gap-2 hover:text-accent"
+                >
+                  <Icon width={22} height={22} aria-label={label} />
+                </CopyButton>
+              ) : (
+                <a
+                  key={id}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={label}
+                  className="hover:text-accent"
+                >
+                  <Icon width={22} height={22} />
+                </a>
+              ),
+            )}
         </div>
       </div>
     </Section>

@@ -44,7 +44,9 @@ export async function Hero() {
         <p className="mt-4 text-lg text-muted">{localize(profile.tagline, locale)}</p>
 
         <div className="mt-8 flex flex-wrap justify-center gap-3 md:justify-start">
-          <ButtonLink href={{ pathname: "/", hash: "projects" }}>{t("viewProjects")}</ButtonLink>
+          <ButtonLink href={{ pathname: "/portfolio", hash: "projects" }}>
+            {t("viewProjects")}
+          </ButtonLink>
           {profile.resume && (
             <ButtonAnchor variant="outline" href={localize(profile.resume, locale)} download>
               <DownloadIcon />

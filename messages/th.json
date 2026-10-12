@@ -56,5 +56,14 @@
   "NotFound": {
     "title": "ไม่พบหน้านี้",
     "back": "กลับหน้าแรก"
+  },
+  "Portfolio": {
+    "title": "ผลงาน"
+  },
+  "Bio": {
+    "portfolio": "Portfolio",
+    "portfolioHint": "ผลงาน ทักษะ และประสบการณ์",
+    "copy": "กดเพื่อคัดลอก username",
+    "copied": "คัดลอกแล้ว!"
   }
 }
