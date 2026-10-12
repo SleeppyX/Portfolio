@@ -4,6 +4,7 @@ import { MenuIcon } from "@/components/ui/icons";
 import { profile } from "@/data/profile";
 import { Link } from "@/i18n/navigation";
 import { localize } from "@/lib/localize";
+import { HeaderShell } from "./HeaderShell";
 import { HideOnBio } from "./HideOnBio";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 import { ThemeToggle } from "./ThemeToggle";
@@ -26,7 +27,7 @@ export async function Header() {
   ));
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur">
+    <HeaderShell>
       <Container>
         <div className="flex h-16 items-center justify-between gap-4">
           <Link href="/" className="font-semibold tracking-tight">
@@ -59,6 +60,6 @@ export async function Header() {
           </div>
         </div>
       </Container>
-    </header>
+    </HeaderShell>
   );
 }

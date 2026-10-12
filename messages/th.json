@@ -64,6 +64,7 @@
     "portfolio": "Portfolio",
     "portfolioHint": "ผลงาน ทักษะ และประสบการณ์",
     "copy": "กดเพื่อคัดลอก username",
-    "copied": "คัดลอกแล้ว!"
+    "copied": "คัดลอกแล้ว!",
+    "currently": "ตอนนี้"
   }
 }

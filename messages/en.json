@@ -64,6 +64,7 @@
     "portfolio": "Portfolio",
     "portfolioHint": "Projects, skills & experience",
     "copy": "Click to copy username",
-    "copied": "Copied!"
+    "copied": "Copied!",
+    "currently": "Currently"
   }
 }
