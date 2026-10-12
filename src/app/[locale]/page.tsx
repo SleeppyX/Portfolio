@@ -2,6 +2,7 @@ import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { CopyButton } from "@/components/bio/CopyButton";
 import { NightSky } from "@/components/bio/NightSky";
+import { SpotifyCard } from "@/components/bio/SpotifyCard";
 import { CopyIcon, StarIcon } from "@/components/ui/icons";
 import { getSocialLinks } from "@/components/ui/socials";
 import { experience } from "@/data/experience";
@@ -66,6 +67,10 @@ export default async function BioPage({ params }: PageProps<"/[locale]">) {
             <p className="mt-1 font-semibold">{localize(currentJob.title, locale)}</p>
             <p className="text-sm text-muted">{localize(currentJob.organization, locale)}</p>
           </div>
+        )}
+
+        {profile.spotify && (
+          <SpotifyCard url={profile.spotify} label={t("nowPlaying")} playLabel={t("playVibe")} />
         )}
 
         <ul className="mt-8 w-full space-y-3">

@@ -65,6 +65,8 @@
     "portfolioHint": "ผลงาน ทักษะ และประสบการณ์",
     "copy": "กดเพื่อคัดลอก username",
     "copied": "คัดลอกแล้ว!",
-    "currently": "ตอนนี้"
+    "currently": "ตอนนี้",
+    "nowPlaying": "เพลงที่ชอบ",
+    "playVibe": "เปิดเพลงที่ชอบ"
   }
 }

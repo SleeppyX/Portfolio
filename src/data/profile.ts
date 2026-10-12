@@ -58,6 +58,12 @@ export const profile = {
   } satisfies Localized,
 
   /**
+   * เพลงในการ์ด Now playing บนหน้า Bio (ลิงก์ track หรือ playlist ของ Spotify)
+   * ตั้งเป็น null เพื่อซ่อนการ์ด
+   */
+  spotify: "https://open.spotify.com/track/0Y9O6eVTV8Acy1o9j7fOQk" as string | null,
+
+  /**
    * ช่องทางโซเชียล ใช้ทั้งหน้า Bio และส่วน Contact ท้ายหน้า Portfolio
    * ลบบรรทัดไหนออก ปุ่ม/ไอคอนนั้นจะไม่แสดง
    */
