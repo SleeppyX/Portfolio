@@ -2,6 +2,8 @@
 
 เว็บ Portfolio สองภาษา (EN / TH) สร้างด้วย Next.js, TypeScript, Tailwind CSS และ MDX
 
+**ดูเว็บจริง:** https://portlpsk.vercel.app
+
 ## เริ่มใช้งาน
 
 ```bash
