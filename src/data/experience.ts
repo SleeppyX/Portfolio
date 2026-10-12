@@ -10,6 +10,8 @@ export type ExperienceItem = {
   /** ไม่ใส่ = ยังทำอยู่ (แสดงเป็น Present / ปัจจุบัน) */
   end?: string;
   description: Localized;
+  /** เกรดเฉลี่ยสะสม (ใส่เฉพาะ education) แสดงใน Timeline และ Test Runner บนหน้าแรก */
+  gpax?: number;
 };
 
 /** Timeline ประสบการณ์และการศึกษา เรียงจากใหม่ไปเก่า */
@@ -59,8 +61,9 @@ export const experience: ExperienceItem[] = [
     },
     start: "2023-06",
     description: {
-      en: "Faculty of Engineering and Technology. GPAX 3.64.",
-      th: "คณะวิศวกรรมศาสตร์และเทคโนโลยี เกรดเฉลี่ยสะสม 3.64",
+      en: "Faculty of Engineering and Technology.",
+      th: "คณะวิศวกรรมศาสตร์และเทคโนโลยี",
     },
+    gpax: 3.64,
   },
 ];

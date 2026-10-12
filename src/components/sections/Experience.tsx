@@ -24,6 +24,11 @@ export async function Experience() {
             <h3 className="mt-1 font-semibold">{localize(item.title, locale)}</h3>
             <p className="text-sm text-muted">{localize(item.organization, locale)}</p>
             <p className="mt-2 text-muted">{localize(item.description, locale)}</p>
+            {item.gpax && (
+              <p className="mt-1 text-sm text-muted">
+                GPAX <span className="font-mono text-accent">{item.gpax.toFixed(2)}</span>
+              </p>
+            )}
           </li>
         ))}
       </ol>

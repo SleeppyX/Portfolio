@@ -10,7 +10,8 @@
   "Hero": {
     "greeting": "สวัสดีครับ ผม",
     "viewProjects": "ดูผลงาน",
-    "downloadResume": "ดาวน์โหลด Resume"
+    "downloadResume": "ดาวน์โหลด Resume",
+    "rerunTests": "รันเทสต์อีกครั้ง"
   },
   "About": {
     "title": "เกี่ยวกับผม"

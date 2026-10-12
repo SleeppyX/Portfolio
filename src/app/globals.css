@@ -14,20 +14,23 @@
   --muted: #64748b;
   --border: #e2e8f0;
   --card: #f8fafc;
-  --accent: #4f46e5;
-  --accent-soft: #eef2ff;
+  --accent: #047857;
+  --accent-soft: #ecfdf5;
   --accent-foreground: #ffffff;
+  /* สีของเทสต์ที่ fail (ใช้ใน Test Runner) */
+  --danger: #dc2626;
 }
 
 .dark {
-  --background: #0b1020;
-  --foreground: #e2e8f0;
-  --muted: #94a3b8;
-  --border: #1e293b;
-  --card: #111827;
-  --accent: #818cf8;
-  --accent-soft: #1e1b4b;
-  --accent-foreground: #0b1020;
+  --background: #0d1117;
+  --foreground: #e6edf3;
+  --muted: #8b949e;
+  --border: #30363d;
+  --card: #161b22;
+  --accent: #3fb950;
+  --accent-soft: #0f2e1a;
+  --accent-foreground: #0d1117;
+  --danger: #f85149;
 }
 
 /* ทำให้ใช้เป็น class ของ Tailwind ได้ เช่น bg-card, text-muted, border-border */
@@ -40,6 +43,7 @@
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
   --color-accent-foreground: var(--accent-foreground);
+  --color-danger: var(--danger);
   --font-sans: var(--font-geist-sans), var(--font-thai), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
@@ -67,6 +71,41 @@ body {
   transform: none;
 }
 
+/*
+ * สถานะเทสต์ข้างหัวข้อ section: ไอคอนหมุนก่อน แล้วเปลี่ยนเป็น ✓ ตอนเลื่อนมาถึง
+ * (ใช้คู่กับ components/ui/Section.tsx และ .reveal.is-visible)
+ */
+.test-status-spinner,
+.test-status-pass {
+  grid-area: 1 / 1;
+}
+
+.test-status-pass {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.reveal.is-visible .test-status-spinner {
+  animation: test-status-hide 0s 0.6s forwards;
+}
+
+.reveal.is-visible .test-status-pass {
+  animation: test-status-pop 0.3s 0.6s ease-out forwards;
+}
+
+@keyframes test-status-hide {
+  to {
+    visibility: hidden;
+  }
+}
+
+@keyframes test-status-pop {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -76,5 +115,19 @@ body {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  .test-status-spinner {
+    visibility: hidden;
+  }
+
+  .test-status-pass {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal.is-visible .test-status-spinner,
+  .reveal.is-visible .test-status-pass {
+    animation: none;
   }
 }

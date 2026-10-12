@@ -1,16 +1,40 @@
-import Image from "next/image";
 import { getLocale, getTranslations } from "next-intl/server";
+import { TestRunner } from "@/components/sections/TestRunner";
 import { ButtonAnchor, ButtonLink } from "@/components/ui/Button";
 import { DownloadIcon } from "@/components/ui/icons";
+import { experience } from "@/data/experience";
 import { profile } from "@/data/profile";
+import { skillGroups } from "@/data/skills";
+import type { Locale } from "@/i18n/routing";
 import { localize } from "@/lib/localize";
+import { getAllProjects } from "@/lib/projects";
+
+/**
+ * บรรทัดเทสต์ใน Test Runner คำนวณจากข้อมูลจริงทั้งหมด
+ * (เพิ่มผลงาน/ทักษะ/งานใหม่ ตัวเลขจะเปลี่ยนตามเอง) เป็นภาษาอังกฤษทุกภาษา
+ */
+function buildTests(locale: Locale): string[] {
+  const currentJob = experience.find((item) => item.type === "work" && !item.end);
+  const skills = skillGroups.flatMap((group) => group.items);
+  const projectCount = getAllProjects(locale).length;
+  const gpax = experience.find((item) => item.gpax)?.gpax;
+
+  return [
+    currentJob && `works as ${currentJob.title.en}`,
+    skills.length > 2
+      ? `knows ${skills.slice(0, 2).join(", ")} +${skills.length - 2} more`
+      : `knows ${skills.join(", ")}`,
+    `ships ${projectCount} projects`,
+    gpax && `maintains GPAX ${gpax.toFixed(2)}`,
+  ].filter((test): test is string => Boolean(test));
+}
 
 export async function Hero() {
   const t = await getTranslations("Hero");
-  const locale = await getLocale();
+  const locale = (await getLocale()) as Locale;
 
   return (
-    <section className="flex flex-col-reverse items-center gap-10 py-16 sm:py-24 md:flex-row md:justify-between">
+    <section className="grid items-center gap-12 py-16 sm:py-24 md:grid-cols-2">
       <div className="max-w-xl text-center md:text-left">
         <p className="text-muted">{t("greeting")}</p>
         <h1 className="mt-2 text-4xl font-bold tracking-tight sm:text-5xl">
@@ -30,14 +54,13 @@ export async function Hero() {
         </div>
       </div>
 
-      <Image
-        src={profile.avatar}
-        alt={localize(profile.name, locale)}
-        width={224}
-        height={224}
-        priority
-        className="size-40 rounded-full border-4 border-accent-soft object-cover sm:size-56"
-      />
+      <div className="flex justify-center md:justify-end">
+        <TestRunner
+          suite={profile.name.en}
+          tests={buildTests(locale)}
+          rerunLabel={t("rerunTests")}
+        />
+      </div>
     </section>
   );
 }

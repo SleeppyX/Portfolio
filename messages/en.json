@@ -10,7 +10,8 @@
   "Hero": {
     "greeting": "Hi, I'm",
     "viewProjects": "View projects",
-    "downloadResume": "Download resume"
+    "downloadResume": "Download resume",
+    "rerunTests": "Re-run tests"
   },
   "About": {
     "title": "About me"
