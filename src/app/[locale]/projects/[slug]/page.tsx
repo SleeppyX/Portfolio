@@ -39,7 +39,7 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
   return (
     <article className="mx-auto max-w-3xl py-12 sm:py-16">
       <Link
-        href="/projects"
+        href={{ pathname: "/portfolio", hash: "projects" }}
         className="inline-flex items-center gap-2 text-sm text-muted hover:text-accent"
       >
         <ArrowLeftIcon width={16} height={16} />
