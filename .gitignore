@@ -45,6 +45,7 @@ next-env.d.ts
 /e2e/cypress/cypress/screenshots
 /e2e/cypress/cypress/videos
 /e2e/robot/results
+/e2e/results
 /e2e/**/.venv
 __pycache__/
 .pytest_cache/
