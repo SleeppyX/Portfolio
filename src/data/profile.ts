@@ -6,7 +6,7 @@ import type { Localized } from "@/lib/localize";
 export const profile = {
   name: {
     en: "Sawarut Songmueang",
-    // TODO: เปลี่ยนเป็นชื่อ-นามสกุลภาษาไทย
+    // ตั้งใจใช้ชื่อภาษาอังกฤษทั้งสองภาษา (เปลี่ยนเป็นชื่อไทยได้ที่นี่)
     th: "Sawarut Songmueang",
   } satisfies Localized,
 
