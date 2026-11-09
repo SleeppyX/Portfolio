@@ -9,7 +9,15 @@ export type SkillGroup = {
 export const skillGroups: SkillGroup[] = [
   {
     title: { en: "Quality Assurance", th: "Quality Assurance" },
-    items: ["Cypress", "Postman", "Test Case Design", "Regression Testing", "Issue Logging"],
+    items: [
+      "Cypress",
+      "Selenium",
+      "Robot Framework",
+      "Postman",
+      "Test Case Design",
+      "Regression Testing",
+      "Issue Logging",
+    ],
   },
   {
     title: { en: "Development", th: "Development" },

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { About } from "@/components/sections/About";
+import { AutomatedTesting } from "@/components/sections/AutomatedTesting";
 import { Contact } from "@/components/sections/Contact";
 import { Experience } from "@/components/sections/Experience";
 import { FeaturedProjects } from "@/components/sections/FeaturedProjects";
@@ -27,6 +28,7 @@ export default async function PortfolioPage({ params }: PageProps<"/[locale]/por
       <Hero />
       <About />
       <Skills />
+      <AutomatedTesting />
       <Lab />
       <Experience />
       <FeaturedProjects />

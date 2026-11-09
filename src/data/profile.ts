@@ -25,12 +25,12 @@ export const profile = {
   about: {
     en: [
       "I'm a final-year Computer Engineering and Artificial Intelligence student at Panyapiwat Institute of Management (PIM), currently working as a software developer intern on a case management system for a government agency.",
-      "Before that, I spent five months as a QA engineer intern, where I designed test cases, ran manual and automated tests with Cypress, and tested APIs with Postman. That experience shapes how I write code: I think about how it can break before I ship it.",
+      "Before that, I spent five months as a QA engineer intern, where I designed test cases, ran manual and automated tests with Cypress, Selenium, and Robot Framework, and tested APIs with Postman. That experience shapes how I write code: I think about how it can break before I ship it.",
       "I'm also interested in AI and computer vision, and I enjoy learning new tools by building small projects.",
     ],
     th: [
       "นักศึกษาปีสุดท้าย สาขาวิศวกรรมคอมพิวเตอร์และปัญญาประดิษฐ์ สถาบันการจัดการปัญญาภิวัฒน์ (PIM) ตอนนี้ฝึกงานตำแหน่ง Software Developer พัฒนาระบบบริหารจัดการคดีให้หน่วยงานภาครัฐ",
-      "ก่อนหน้านี้ฝึกงานเป็น QA Engineer 5 เดือน ออกแบบ Test Case ทดสอบทั้งแบบ Manual และ Automated ด้วย Cypress และทดสอบ API ด้วย Postman ประสบการณ์นี้ทำให้เวลาเขียนโค้ดจะคิดก่อนเสมอว่าระบบพังได้ตรงไหนบ้าง",
+      "ก่อนหน้านี้ฝึกงานเป็น QA Engineer 5 เดือน ออกแบบ Test Case ทดสอบทั้งแบบ Manual และ Automated ด้วย Cypress, Selenium และ Robot Framework และทดสอบ API ด้วย Postman ประสบการณ์นี้ทำให้เวลาเขียนโค้ดจะคิดก่อนเสมอว่าระบบพังได้ตรงไหนบ้าง",
       "สนใจด้าน AI และ Computer Vision และชอบเรียนรู้เครื่องมือใหม่ๆ ด้วยการลงมือทำโปรเจกต์เล็กๆ",
     ],
   } satisfies Localized<string[]>,

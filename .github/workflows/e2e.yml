@@ -1,0 +1,66 @@
+# เทสต์อัตโนมัติ: build เว็บแล้วรันเทสต์ทั้ง 3 framework กับเว็บที่รันบน runner
+# ผลรอบล่าสุดแสดงใน section "Automated Testing" บนหน้า Portfolio
+name: E2E tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      BASE_URL: http://localhost:3000
+      CYPRESS_BASE_URL: http://localhost:3000
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Build the site
+        run: |
+          npm ci
+          npm run build
+
+      - name: Start the site
+        run: |
+          npm run start &
+          npx --yes wait-on@8 --timeout 60000 http://localhost:3000/en
+
+      - name: Cypress (Bio page)
+        working-directory: e2e/cypress
+        run: |
+          npm ci --no-audit --no-fund
+          npx cypress run
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Selenium (Portfolio page)
+        working-directory: e2e/selenium
+        run: |
+          pip install -r requirements.txt
+          pytest -v
+
+      - name: Robot Framework (Project pages)
+        working-directory: e2e/robot
+        run: |
+          pip install -r requirements.txt
+          robot --variable BASE_URL:http://localhost:3000 --outputdir results projects.robot
+
+      - name: Upload test reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-reports
+          path: |
+            e2e/robot/results
+            e2e/cypress/cypress/screenshots
+          if-no-files-found: ignore

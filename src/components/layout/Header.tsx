@@ -10,7 +10,15 @@ import { LocaleSwitcher } from "./LocaleSwitcher";
 import { ThemeToggle } from "./ThemeToggle";
 
 /** เมนูด้านบน: ลิงก์ไปแต่ละส่วนของหน้า Portfolio (ค่าคือ id ของ Section) */
-const navItems = ["about", "skills", "lab", "experience", "projects", "contact"] as const;
+const navItems = [
+  "about",
+  "skills",
+  "testing",
+  "lab",
+  "experience",
+  "projects",
+  "contact",
+] as const;
 
 export async function Header() {
   const t = await getTranslations("Nav");

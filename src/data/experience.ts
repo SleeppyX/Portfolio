@@ -34,8 +34,8 @@ export const experience: ExperienceItem[] = [
     start: "2025-01",
     end: "2025-05",
     description: {
-      en: "Designed and ran test cases from system requirements, automated tests with Cypress, tested APIs with Postman, and logged and verified bugs through regression testing.",
-      th: "ออกแบบและรัน Test Case จาก Requirement ทำ Automated Test ด้วย Cypress ทดสอบ API ด้วย Postman บันทึก Bug และตรวจสอบการแก้ไขด้วย Regression Test",
+      en: "Designed and ran test cases from system requirements, automated tests with Cypress, Selenium, and Robot Framework, tested APIs with Postman, and logged and verified bugs through regression testing.",
+      th: "ออกแบบและรัน Test Case จาก Requirement ทำ Automated Test ด้วย Cypress, Selenium และ Robot Framework ทดสอบ API ด้วย Postman บันทึก Bug และตรวจสอบการแก้ไขด้วย Regression Test",
     },
   },
   {

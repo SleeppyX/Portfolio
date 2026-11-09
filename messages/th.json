@@ -2,6 +2,7 @@
   "Nav": {
     "about": "เกี่ยวกับ",
     "skills": "ทักษะ",
+    "testing": "เทสต์",
     "lab": "แล็บ",
     "experience": "ประสบการณ์",
     "projects": "ผลงาน",
@@ -82,5 +83,24 @@
     "minutesAgo": "อัปเดต {minutes} นาทีที่แล้ว",
     "sensorNote": "สภาพอากาศและคุณภาพอากาศกรุงเทพฯ แบบสดจาก Open-Meteo อัปเดตทุก 5 นาที แสดงในรูปแบบอุปกรณ์เซนเซอร์ IoT",
     "seeProject": "ดูผลงาน"
+  },
+  "Testing": {
+    "title": "Automated Testing",
+    "intro": "ผมเคยเขียน Automated Test ด้วย Cypress, Selenium และ Robot Framework ทั้งตอนฝึกงาน QA ในวิชา QA Automation ที่ PIM และในโปรเจกต์ส่วนตัว ด้านล่างคือเทสต์จริงของเว็บนี้ แต่ละ framework ทดสอบคนละหน้า และ GitHub Actions จะ build เว็บแล้วรันเทสต์ทั้งหมดทุกครั้งที่ push",
+    "ci": "E2E tests",
+    "status": {
+      "success": "ผ่าน",
+      "failure": "ไม่ผ่าน",
+      "running": "กำลังรัน",
+      "unknown": "ดูผลการรัน"
+    },
+    "summary": "{tests} เทสต์ · {frameworks} framework",
+    "tests": "{count} เทสต์",
+    "viewOnGithub": "ดูบน GitHub",
+    "targets": {
+      "cypress": "หน้า Bio",
+      "selenium": "หน้า Portfolio",
+      "robot": "หน้าผลงาน และหน้า 404"
+    }
   }
 }

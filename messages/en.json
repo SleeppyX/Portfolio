@@ -2,6 +2,7 @@
   "Nav": {
     "about": "About",
     "skills": "Skills",
+    "testing": "Testing",
     "lab": "Lab",
     "experience": "Experience",
     "projects": "Projects",
@@ -82,5 +83,24 @@
     "minutesAgo": "updated {minutes} min ago",
     "sensorNote": "Live Bangkok weather and air quality from Open-Meteo, refreshed every 5 minutes, shown like an IoT sensor node.",
     "seeProject": "See the project"
+  },
+  "Testing": {
+    "title": "Automated Testing",
+    "intro": "I've written automated tests with Cypress, Selenium, and Robot Framework during my QA internship, in PIM's QA automation course, and in personal projects. Below are real tests for this website: each framework covers a different page, and GitHub Actions builds the site and runs all of them on every push.",
+    "ci": "E2E tests",
+    "status": {
+      "success": "passing",
+      "failure": "failing",
+      "running": "running",
+      "unknown": "see runs"
+    },
+    "summary": "{tests} tests · {frameworks} frameworks",
+    "tests": "{count} tests",
+    "viewOnGithub": "View on GitHub",
+    "targets": {
+      "cypress": "Bio page",
+      "selenium": "Portfolio page",
+      "robot": "Project pages & 404"
+    }
   }
 }
