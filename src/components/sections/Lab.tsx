@@ -2,6 +2,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { SensorCard } from "@/components/sections/SensorCard";
 import { Section } from "@/components/ui/Section";
 import { interests } from "@/data/interests";
+import { Link } from "@/i18n/navigation";
 import { localize } from "@/lib/localize";
 
 /** Lab & Interests: การ์ดเซนเซอร์ข้อมูลจริง (IoT) + ความสนใจด้าน IoT / AI */
@@ -39,6 +40,14 @@ export async function Lab() {
                 <p className="mt-2 font-mono text-xs text-accent">
                   {interest.keywords.join(" · ")}
                 </p>
+                {interest.project && (
+                  <Link
+                    href={`/projects/${interest.project}`}
+                    className="mt-2 inline-block text-sm font-medium text-accent hover:underline"
+                  >
+                    {t("seeProject")} →
+                  </Link>
+                )}
               </div>
             </li>
           ))}

@@ -5,6 +5,8 @@ export type Interest = {
   description: Localized;
   /** คำสั้นๆ ใต้หัวข้อ แสดงเป็นตัว mono */
   keywords: string[];
+  /** slug ของผลงานที่เกี่ยวข้องใน content/projects (ถ้ามี จะมีลิงก์ไปหน้าผลงาน) */
+  project?: string;
 };
 
 /** ความสนใจที่แสดงใน section "Lab & Interests" บนหน้า Portfolio */
@@ -32,5 +34,6 @@ export const interests: Interest[] = [
       th: "ระบบ machine learning อัตโนมัติ ที่อธิบายได้ด้วยว่าโมเดลตัดสินใจแต่ละครั้งเพราะอะไร",
     },
     keywords: ["AutoML", "XAI", "pipelines"],
+    project: "ml-pipeline-generator",
   },
 ];

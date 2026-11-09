@@ -80,6 +80,7 @@
     "history": "Temperature, last 24h",
     "justNow": "updated just now",
     "minutesAgo": "updated {minutes} min ago",
-    "sensorNote": "Live Bangkok weather and air quality from Open-Meteo, refreshed every 5 minutes, shown like an IoT sensor node."
+    "sensorNote": "Live Bangkok weather and air quality from Open-Meteo, refreshed every 5 minutes, shown like an IoT sensor node.",
+    "seeProject": "See the project"
   }
 }

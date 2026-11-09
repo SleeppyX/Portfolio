@@ -1,0 +1,24 @@
+---
+title: Explainable & Interactive ML Pipeline Generator
+summary: เว็บแอป Streamlit ที่สร้าง machine learning pipeline จาก dataset ที่อัปโหลด และอธิบายเหตุผลทุกขั้นตอน เป็นงานทีม 2 คน ผมรับผิดชอบส่วน data cleaning
+---
+
+## ภาพรวม
+
+ผู้ใช้อัปโหลด dataset แล้วแอปจะพาทำ machine learning pipeline ครบทุกขั้น
+ตั้งแต่ทำความสะอาดข้อมูล encoding, scaling, เลือก feature, เทรน และวัดผลโมเดล
+โดยมี reasoning engine แบบ rule-based แนะนำตัวเลือกในแต่ละขั้นพร้อมอธิบายเหตุผล
+คนที่ไม่มีพื้นฐาน ML ก็เข้าใจได้ว่าโมเดลสุดท้ายถูกสร้างมาอย่างไร
+
+เทรนโมเดลด้วย AutoGluon, XGBoost, LightGBM, CatBoost และ scikit-learn
+เป็นงานทีม 2 คน
+
+## ส่วนที่ผมทำ: data cleaning
+
+- **Missing value:** เติมค่าว่างรายคอลัมน์ด้วย mean, median, mode, forward fill หรือลบแถวทิ้ง
+  โดยแสดงเฉพาะวิธีที่ใช้ได้กับชนิดข้อมูลของคอลัมน์นั้น
+- **Outlier:** ตรวจจับด้วย Z-Score หรือ IQR ตามความเบ้ของข้อมูล แล้วเลือก clip หรือลบทิ้ง
+- **แถวซ้ำและคอลัมน์ที่ไม่ใช้:** หาและลบได้ในคลิกเดียว
+- **คำแนะนำอัตโนมัติ:** rule engine แนะนำวิธีจัดการให้ทุกคอลัมน์ กด "Apply All" หรือ
+  "Apply Selected" เพื่อใช้ทั้งหมดในรอบเดียว
+- **ตารางเปรียบเทียบก่อน/หลัง:** ไฮไลต์ให้เห็นว่าข้อมูลเปลี่ยนไปอย่างไรหลังทำความสะอาด

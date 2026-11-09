@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b2545"/><stop offset="1" stop-color="#0969da"/></linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#g)"/>
+  <text x="600" y="190" font-family="system-ui, sans-serif" font-size="54" font-weight="700" fill="#ffffff" text-anchor="middle">Explainable ML Pipeline</text>
+  <text x="600" y="240" font-family="system-ui, sans-serif" font-size="28" fill="#cde4ff" text-anchor="middle">Interactive AutoML that explains every step</text>
+  <g font-family="ui-monospace, monospace" font-size="26" fill="#ffffff" text-anchor="middle">
+    <rect x="95" y="345" width="210" height="90" rx="14" fill="#ffffff22" stroke="#9fd0ff" stroke-width="2"/>
+    <text x="200" y="400">Upload</text>
+    <rect x="365" y="345" width="210" height="90" rx="14" fill="#58a6ff" stroke="#ffffff" stroke-width="3"/>
+    <text x="470" y="400" font-weight="700">Clean</text>
+    <rect x="635" y="345" width="210" height="90" rx="14" fill="#ffffff22" stroke="#9fd0ff" stroke-width="2"/>
+    <text x="740" y="400">Train</text>
+    <rect x="905" y="345" width="210" height="90" rx="14" fill="#ffffff22" stroke="#9fd0ff" stroke-width="2"/>
+    <text x="1010" y="400">Explain</text>
+  </g>
+  <g stroke="#9fd0ff" stroke-width="3" fill="#9fd0ff">
+    <line x1="305" y1="390" x2="355" y2="390"/><path d="M355 382 l10 8 -10 8z"/>
+    <line x1="575" y1="390" x2="625" y2="390"/><path d="M625 382 l10 8 -10 8z"/>
+    <line x1="845" y1="390" x2="895" y2="390"/><path d="M895 382 l10 8 -10 8z"/>
+  </g>
+  <text x="470" y="480" font-family="ui-monospace, monospace" font-size="20" fill="#cde4ff" text-anchor="middle">my part</text>
+</svg>
