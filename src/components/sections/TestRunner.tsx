@@ -113,28 +113,28 @@ export function TestRunner({ suite, tests, rerunLabel }: TestRunnerProps) {
   const total = lines.reduce((sum, line) => sum + (line.duration ?? 0), 0);
 
   return (
-    <div className="relative w-full max-w-md overflow-hidden rounded-xl border border-[#30363d] bg-[#0d1117] font-mono text-sm text-[#e6edf3] shadow-2xl shadow-black/30">
+    <div className="test-runner relative w-full max-w-md overflow-hidden rounded-xl border border-(--t-border) bg-(--t-bg) font-mono text-sm text-(--t-fg) shadow-2xl shadow-black/10 dark:shadow-black/30">
       {/* แถบหัวหน้าต่าง */}
-      <div className="flex items-center gap-2 border-b border-[#30363d] bg-[#161b22] px-4 py-2.5">
+      <div className="flex items-center gap-2 border-b border-(--t-border) bg-(--t-bar) px-4 py-2.5">
         <span aria-hidden className="size-3 rounded-full bg-[#f85149]" />
         <span aria-hidden className="size-3 rounded-full bg-[#d29922]" />
         <span aria-hidden className="size-3 rounded-full bg-[#3fb950]" />
-        <span className="ml-2 flex-1 text-xs text-[#8b949e]">portfolio.cy.js</span>
+        <span className="ml-2 flex-1 text-xs text-(--t-muted)">portfolio.cy.js</span>
         <button
           type="button"
           onClick={() => run(true)}
           disabled={!done}
           aria-label={rerunLabel}
           title={rerunLabel}
-          className="rounded px-1.5 text-base leading-none text-[#8b949e] transition-colors hover:text-[#58a6ff] focus-visible:outline-2 focus-visible:outline-[#58a6ff] disabled:opacity-40"
+          className="rounded px-1.5 text-base leading-none text-(--t-muted) transition-colors hover:text-(--t-blue) focus-visible:outline-2 focus-visible:outline-(--t-blue) disabled:opacity-40"
         >
           ↻
         </button>
       </div>
 
       <div className="space-y-1 p-4 sm:p-5">
-        <p className="text-[#8b949e]">
-          <span className="text-[#58a6ff]">$</span> npx cypress run
+        <p className="text-(--t-muted)">
+          <span className="text-(--t-blue)">$</span> npx cypress run
         </p>
         <p className="pt-3 font-semibold">{suite}</p>
 
@@ -147,17 +147,17 @@ export function TestRunner({ suite, tests, rerunLabel }: TestRunnerProps) {
                 <span
                   className={
                     line.status === "pending"
-                      ? "text-[#8b949e]/50"
+                      ? "text-(--t-muted)/50"
                       : line.status === "fail"
-                        ? "text-[#f85149]"
+                        ? "text-(--t-red)"
                         : line.status === "pass"
-                          ? "text-[#8b949e]"
+                          ? "text-(--t-muted)"
                           : ""
                   }
                 >
                   {test}
                   {line.duration !== undefined && (
-                    <span className="ml-2 text-xs text-[#8b949e]/70">({line.duration}ms)</span>
+                    <span className="ml-2 text-xs text-(--t-muted)/70">({line.duration}ms)</span>
                   )}
                 </span>
               </li>
@@ -168,15 +168,15 @@ export function TestRunner({ suite, tests, rerunLabel }: TestRunnerProps) {
         {/* บรรทัดสถานะ: ข้อความ error/retry ระหว่างรัน หรือสรุปผลตอนจบ */}
         <p aria-live="polite" className="min-h-6 pt-3">
           {message ? (
-            <span className={message.tone === "fail" ? "text-[#f85149]" : "text-[#d29922]"}>
+            <span className={message.tone === "fail" ? "text-(--t-red)" : "text-(--t-yellow)"}>
               {message.text}
             </span>
           ) : done ? (
             <>
-              <span className="text-[#58a6ff]">
+              <span className="text-(--t-blue)">
                 {tests.length} passing ({(total / 1000).toFixed(2)}s)
               </span>
-              {retried && <span className="text-[#8b949e]"> · 1 flaky, retried</span>}
+              {retried && <span className="text-(--t-muted)"> · 1 flaky, retried</span>}
             </>
           ) : null}
         </p>
@@ -190,12 +190,12 @@ function StatusIcon({ status }: { status: TestStatus }) {
     return (
       <span
         aria-hidden
-        className="mt-[0.2rem] size-3.5 shrink-0 animate-spin rounded-full border-2 border-[#8b949e] border-t-transparent"
+        className="mt-[0.2rem] size-3.5 shrink-0 animate-spin rounded-full border-2 border-(--t-muted) border-t-transparent"
       />
     );
   }
   const icon = { pending: "○", pass: "✓", fail: "✗" }[status];
-  const color = { pending: "text-[#8b949e]/50", pass: "text-[#58a6ff]", fail: "text-[#f85149]" }[
+  const color = { pending: "text-(--t-muted)/50", pass: "text-(--t-blue)", fail: "text-(--t-red)" }[
     status
   ];
   return (

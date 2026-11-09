@@ -71,6 +71,29 @@ body {
   transform: none;
 }
 
+/* สีของหน้าต่าง Test Runner (components/sections/TestRunner.tsx): สว่างตามธีม, มืดแบบ IDE */
+.test-runner {
+  --t-bg: #ffffff;
+  --t-bar: #f6f8fa;
+  --t-border: #d0d7de;
+  --t-fg: #1f2328;
+  --t-muted: #59636e;
+  --t-blue: #0969da;
+  --t-red: #cf222e;
+  --t-yellow: #9a6700;
+}
+
+.dark .test-runner {
+  --t-bg: #0d1117;
+  --t-bar: #161b22;
+  --t-border: #30363d;
+  --t-fg: #e6edf3;
+  --t-muted: #8b949e;
+  --t-blue: #58a6ff;
+  --t-red: #f85149;
+  --t-yellow: #d29922;
+}
+
 /*
  * สถานะเทสต์ข้างหัวข้อ section: ไอคอนหมุนก่อน แล้วเปลี่ยนเป็น ✓ ตอนเลื่อนมาถึง
  * (ใช้คู่กับ components/ui/Section.tsx และ .reveal.is-visible)
