@@ -1,0 +1,72 @@
+{
+  "selenium": {
+    "duration": 20.1,
+    "steps": [
+      {
+        "title": "nav links to every section",
+        "start": 0
+      },
+      {
+        "title": "hero test runner passes",
+        "start": 4.4
+      },
+      {
+        "title": "projects section lists every project",
+        "start": 9.6
+      },
+      {
+        "title": "lab shows sensor node",
+        "start": 14.1
+      }
+    ],
+    "passed": true
+  },
+  "cypress": {
+    "duration": 17.1,
+    "steps": [
+      {
+        "title": "shows the profile and status",
+        "start": 2.3
+      },
+      {
+        "title": "links to every social account",
+        "start": 4.6
+      },
+      {
+        "title": "copies the Discord username",
+        "start": 6.8
+      },
+      {
+        "title": "switches to Thai",
+        "start": 9.9
+      },
+      {
+        "title": "toggles between dark and light themes",
+        "start": 13
+      }
+    ],
+    "passed": true
+  },
+  "robot": {
+    "duration": 17.6,
+    "steps": [
+      {
+        "title": "Every Project Page Opens",
+        "start": 0
+      },
+      {
+        "title": "Thai Project Page Is Translated",
+        "start": 10.2
+      },
+      {
+        "title": "Back Link Returns To Projects Section",
+        "start": 11.8
+      },
+      {
+        "title": "Unknown Project Shows 404",
+        "start": 14.4
+      }
+    ],
+    "passed": true
+  }
+}

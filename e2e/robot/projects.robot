@@ -1,11 +1,13 @@
 *** Settings ***
 Documentation     Project detail pages (EN/TH) and the 404 page
 Library           SeleniumLibrary
-Suite Setup       Open Browser    ${BASE_URL}/en    headlesschrome
+Suite Setup       Open Test Browser
 Suite Teardown    Close All Browsers
 
 *** Variables ***
 ${BASE_URL}       http://localhost:3000
+# ตอนอัดวิดีโอ: ต่อเข้ากับ Chrome ที่ตัวอัดเปิดไว้ (เช่น 127.0.0.1:9555)
+${DEBUGGER}       ${EMPTY}
 
 *** Test Cases ***
 Every Project Page Opens
@@ -27,3 +29,14 @@ Back Link Returns To Projects Section
 Unknown Project Shows 404
     Go To    ${BASE_URL}/en/projects/does-not-exist
     Page Should Contain    Page not found
+
+*** Keywords ***
+Open Test Browser
+    IF    "${DEBUGGER}"
+        Open Browser    ${BASE_URL}/en    chrome
+        ...    options=add_experimental_option("debuggerAddress", "${DEBUGGER}")
+        # หน่วงแต่ละคำสั่งให้คนดูวิดีโอตามทัน
+        Set Selenium Speed    0.5s
+    ELSE
+        Open Browser    ${BASE_URL}/en    headlesschrome
+    END

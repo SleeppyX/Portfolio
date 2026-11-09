@@ -1,22 +1,41 @@
 """หน้า Portfolio: เมนู, Test Runner ใน Hero, section ผลงาน และการ์ดเซนเซอร์"""
 
 import os
+import time
 
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.events import AbstractEventListener, EventFiringWebDriver
 from selenium.webdriver.support.ui import WebDriverWait
 
 BASE_URL = os.environ.get("BASE_URL", "http://localhost:3000")
+# ตอนอัดวิดีโอ: ต่อเข้ากับ Chrome ที่ตัวอัดเปิดไว้แทนการเปิดใหม่
+DEBUGGER = os.environ.get("CHROME_DEBUGGER")
+
+
+class SlowMotion(AbstractEventListener):
+    """ใช้ตอนอัดวิดีโอ: หน่วงหลังแต่ละคำสั่งให้คนดูวิดีโอตามทัน"""
+
+    def after_navigate_to(self, url, driver):
+        time.sleep(1.2)
+
+    def after_find(self, by, value, driver):
+        time.sleep(0.6)
 
 
 @pytest.fixture
 def driver():
     options = webdriver.ChromeOptions()
-    options.add_argument("--headless=new")
-    options.add_argument("--window-size=1280,900")
+    if DEBUGGER:
+        options.debugger_address = DEBUGGER
+    else:
+        options.add_argument("--headless=new")
+        options.add_argument("--window-size=1280,900")
     browser = webdriver.Chrome(options=options)
+    if DEBUGGER:
+        browser = EventFiringWebDriver(browser, SlowMotion())
     browser.get(f"{BASE_URL}/en/portfolio")
     yield browser
     browser.quit()

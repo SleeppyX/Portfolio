@@ -1,0 +1,12 @@
+{
+  "name": "portfolio-e2e-recorder",
+  "private": true,
+  "description": "อัดวิดีโอตอนเทสต์รัน สำหรับ section Automated Testing (รันในเครื่อง ไม่ได้ใช้ใน CI)",
+  "type": "module",
+  "scripts": {
+    "record": "node record.mjs"
+  },
+  "devDependencies": {
+    "ffmpeg-static": "^5.2.0"
+  }
+}
