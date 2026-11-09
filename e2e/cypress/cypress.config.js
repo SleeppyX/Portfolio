@@ -13,16 +13,19 @@ module.exports = defineConfig({
     video: Boolean(process.env.RECORD_VIDEOS_DIR),
     videosFolder: process.env.RECORD_VIDEOS_DIR || "cypress/videos",
     setupNodeEvents(on) {
-      // ตอนอัดวิดีโอ (e2e/recorder): บันทึกชื่อและเวลาของแต่ละเทสต์ไว้ทำรายการ step
+      // ตอนอัดวิดีโอ (e2e/recorder): บันทึกวิดีโอ ชื่อ และเวลาของแต่ละเทสต์ไว้ทำรายการ step
+      // (1 บรรทัดต่อ 1 spec ตัวอัดจะเอาวิดีโอของทุก spec มาต่อกัน)
       on("after:spec", (spec, results) => {
         const file = process.env.RECORD_STEPS_FILE;
         if (!file || !results) return;
         const tests = results.tests.map((test) => ({
+          group: test.title[0],
           title: test.title.at(-1),
           duration: test.duration,
           state: test.state,
         }));
-        require("node:fs").writeFileSync(file, JSON.stringify({ video: results.video, tests }));
+        const line = JSON.stringify({ spec: spec.name, video: results.video, tests });
+        require("node:fs").appendFileSync(file, line + "\n");
       });
     },
   },

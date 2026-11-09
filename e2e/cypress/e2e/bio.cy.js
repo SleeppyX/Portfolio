@@ -1,9 +1,5 @@
 // หน้า Bio (หน้าแรก): ข้อมูลส่วนตัว ลิงก์ social ปุ่ม Discord และการสลับภาษา/ธีม
-// รอให้ React hydrate ปุ่มเสร็จก่อน ไม่อย่างนั้นการคลิกจะยังไม่มีผล
-const waitForHydration = () =>
-  cy.get('button[aria-label="Toggle dark mode"]').should(($button) => {
-    expect(Object.keys($button[0]).some((key) => key.startsWith("__reactProps"))).to.equal(true);
-  });
+import { waitForHydration } from "./helpers";
 
 describe("Bio page", () => {
   beforeEach(() => {

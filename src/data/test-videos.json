@@ -1,72 +1,81 @@
 {
-  "selenium": {
-    "duration": 20.1,
-    "steps": [
-      {
-        "title": "nav links to every section",
-        "start": 0
-      },
-      {
-        "title": "hero test runner passes",
-        "start": 4.4
-      },
-      {
-        "title": "projects section lists every project",
-        "start": 9.6
-      },
-      {
-        "title": "lab shows sensor node",
-        "start": 14.1
-      }
-    ],
-    "passed": true
-  },
-  "cypress": {
-    "duration": 17.1,
-    "steps": [
-      {
-        "title": "shows the profile and status",
-        "start": 2.3
-      },
-      {
-        "title": "links to every social account",
-        "start": 4.6
-      },
-      {
-        "title": "copies the Discord username",
-        "start": 6.8
-      },
-      {
-        "title": "switches to Thai",
-        "start": 9.9
-      },
-      {
-        "title": "toggles between dark and light themes",
-        "start": 13
-      }
-    ],
-    "passed": true
-  },
-  "robot": {
-    "duration": 17.6,
-    "steps": [
-      {
-        "title": "Every Project Page Opens",
-        "start": 0
-      },
-      {
-        "title": "Thai Project Page Is Translated",
-        "start": 10.2
-      },
-      {
-        "title": "Back Link Returns To Projects Section",
-        "start": 11.8
-      },
-      {
-        "title": "Unknown Project Shows 404",
-        "start": 14.4
-      }
-    ],
-    "passed": true
-  }
+  "duration": 47.3,
+  "passed": true,
+  "steps": [
+    {
+      "group": "Bio page",
+      "title": "shows the profile and status",
+      "start": 2.3
+    },
+    {
+      "group": "Bio page",
+      "title": "links to every social account",
+      "start": 4.6
+    },
+    {
+      "group": "Bio page",
+      "title": "copies the Discord username",
+      "start": 6.8
+    },
+    {
+      "group": "Bio page",
+      "title": "switches to Thai",
+      "start": 9.9
+    },
+    {
+      "group": "Bio page",
+      "title": "toggles between dark and light themes",
+      "start": 13.1
+    },
+    {
+      "group": "Portfolio page",
+      "title": "links to every section from the menu",
+      "start": 17.2
+    },
+    {
+      "group": "Portfolio page",
+      "title": "runs the hero test runner to passing",
+      "start": 19.6
+    },
+    {
+      "group": "Portfolio page",
+      "title": "lists every project",
+      "start": 21.8
+    },
+    {
+      "group": "Portfolio page",
+      "title": "shows the live sensor node",
+      "start": 23.9
+    },
+    {
+      "group": "Portfolio page",
+      "title": "opens the test video popup",
+      "start": 26.1
+    },
+    {
+      "group": "Portfolio page",
+      "title": "has a working email link",
+      "start": 30.2
+    },
+    {
+      "group": "Project pages",
+      "title": "opens every project page",
+      "start": 32.4
+    },
+    {
+      "group": "Project pages",
+      "title": "translates project pages to Thai",
+      "start": 39.8
+    },
+    {
+      "group": "Project pages",
+      "title": "goes back to the projects section",
+      "start": 41.9
+    },
+    {
+      "group": "Project pages",
+      "title": "shows a 404 page for unknown projects",
+      "start": 45
+    }
+  ]
 }

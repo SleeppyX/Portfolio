@@ -1,33 +1,35 @@
 import { getTranslations } from "next-intl/server";
 import { CiStatus } from "@/components/sections/CiStatus";
-import { TestVideos, type TestVideo } from "@/components/sections/TestVideos";
+import { TestVideo } from "@/components/sections/TestVideo";
 import { Section } from "@/components/ui/Section";
-import videos from "@/data/test-videos.json";
+import run from "@/data/test-videos.json";
 
 /** repo และ workflow ที่รันเทสต์ (ใช้ดึงสถานะ CI และลิงก์ไปดูโค้ด) */
 const REPO = "SleeppyX/Portfolio";
 const WORKFLOW = "e2e.yml";
 
-/** ชุดเทสต์ใน e2e/ แต่ละ framework เทสต์คนละหน้า (วิดีโอสร้างด้วย e2e/recorder) */
-const SUITES = [
-  { id: "cypress", name: "Cypress", language: "JavaScript", file: "e2e/cypress/e2e/bio.cy.js" },
-  { id: "selenium", name: "Selenium", language: "Python", file: "e2e/selenium/test_portfolio.py" },
-  { id: "robot", name: "Robot Framework", language: "Robot", file: "e2e/robot/projects.robot" },
-] as const;
+/** ชื่อ describe ในแต่ละ spec ของ e2e/cypress → key ของคำแปลใน Testing.groups */
+const GROUPS: Record<string, "bio" | "portfolio" | "projects"> = {
+  "Bio page": "bio",
+  "Portfolio page": "portfolio",
+  "Project pages": "projects",
+};
 
-/** Automated Testing: การ์ดของแต่ละ framework กดแล้วดูวิดีโอตอนเทสต์รันจริง + สถานะ CI */
+/** framework อื่นที่เคยใช้ (แสดงเป็น badge ไม่มีวิดีโอ) */
+const ALSO_USED = [
+  { name: "Selenium", language: "Python" },
+  { name: "Robot Framework", language: "Robot" },
+];
+
+/** Automated Testing: วิดีโอตอนเทสต์ Cypress รันจริงทั้งเว็บ + สถานะ CI */
 export async function AutomatedTesting() {
   const t = await getTranslations("Testing");
 
-  const suites: TestVideo[] = SUITES.map((suite) => ({
-    ...suite,
-    ...videos[suite.id],
-    target: t(`targets.${suite.id}`),
-    video: `/videos/${suite.id}.mp4`,
-    poster: `/videos/${suite.id}.jpg`,
-    codeUrl: `https://github.com/${REPO}/blob/main/${suite.file}`,
+  // ชุดเทสต์ตามลำดับที่อยู่ในวิดีโอ
+  const groups = [...new Set(run.steps.map((step) => step.group))].map((id) => ({
+    id,
+    label: t(`groups.${GROUPS[id] ?? "bio"}`),
   }));
-  const total = suites.reduce((sum, suite) => sum + suite.steps.length, 0);
 
   return (
     <Section id="testing" title={t("title")}>
@@ -46,12 +48,20 @@ export async function AutomatedTesting() {
           }}
         />
         <span className="text-muted">
-          {t("summary", { tests: total, frameworks: suites.length })}
+          {t("summary", { tests: run.steps.length, suites: groups.length })}
         </span>
       </div>
 
-      <TestVideos
-        suites={suites}
+      <TestVideo
+        run={{
+          ...run,
+          name: "Cypress",
+          language: "JavaScript",
+          groups,
+          video: "/videos/cypress.mp4",
+          poster: "/videos/cypress.jpg",
+          codeUrl: `https://github.com/${REPO}/tree/main/e2e/cypress/e2e`,
+        }}
         labels={{
           watch: t("watch"),
           close: t("close"),
@@ -62,6 +72,18 @@ export async function AutomatedTesting() {
           passed: t.raw("passed") as string,
         }}
       />
+
+      <div className="mt-6 flex flex-wrap items-center gap-2 text-sm">
+        <span className="mr-1 text-muted">{t("alsoUsed")}</span>
+        {ALSO_USED.map((tool) => (
+          <span
+            key={tool.name}
+            className="rounded-full border border-border bg-card px-3 py-1 font-mono text-xs"
+          >
+            {tool.name} <span className="text-muted">· {tool.language}</span>
+          </span>
+        ))}
+      </div>
     </Section>
   );
 }
