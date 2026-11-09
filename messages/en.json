@@ -2,6 +2,7 @@
   "Nav": {
     "about": "About",
     "skills": "Skills",
+    "lab": "Lab",
     "experience": "Experience",
     "projects": "Projects",
     "contact": "Contact",
@@ -68,5 +69,17 @@
     "currently": "Currently",
     "nowPlaying": "Now playing",
     "playVibe": "Play my vibe"
+  },
+  "Lab": {
+    "title": "Lab & Interests",
+    "online": "online",
+    "offline": "node offline",
+    "location": "Bangkok, TH",
+    "temperature": "Temp",
+    "humidity": "Humidity",
+    "history": "Temperature, last 24h",
+    "justNow": "updated just now",
+    "minutesAgo": "updated {minutes} min ago",
+    "sensorNote": "Live Bangkok weather and air quality from Open-Meteo, refreshed every 5 minutes, shown like an IoT sensor node."
   }
 }

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { CopyButton } from "@/components/bio/CopyButton";
+import { DetectionFrame } from "@/components/bio/DetectionFrame";
 import { NightSky } from "@/components/bio/NightSky";
 import { SpotifyCard } from "@/components/bio/SpotifyCard";
 import { CopyIcon, StarIcon } from "@/components/ui/icons";
@@ -30,19 +31,30 @@ export default async function BioPage({ params }: PageProps<"/[locale]">) {
   return (
     <>
       <NightSky />
+      {/* ป้าย HUD มุมจอ แสดงเฉพาะจอกว้างที่มีพื้นที่ว่างด้านข้าง */}
+      <div
+        aria-hidden
+        className="pointer-events-none fixed inset-x-6 bottom-5 hidden justify-between font-mono text-[10px] tracking-widest text-muted/70 uppercase lg:flex"
+      >
+        <span>● sys.online · node-bkk-01</span>
+        <span>lat 13.75°n · lon 100.50°e</span>
+      </div>
       <div className="mx-auto flex max-w-md flex-col items-center py-12 sm:py-16">
-        <div className="relative">
-          {/* แสงฟ้าจางๆ ด้านหลังรูป */}
-          <div aria-hidden className="absolute -inset-6 rounded-full bg-accent/40 blur-3xl" />
-          <Image
-            src={profile.avatar}
-            alt={localize(profile.name, locale)}
-            width={160}
-            height={160}
-            priority
-            className="relative size-32 rounded-full border-4 border-accent-soft object-cover sm:size-36"
-          />
-        </div>
+        {/* กรอบตรวจจับแบบ object detection รอบรูป */}
+        <DetectionFrame label="person 0.97">
+          <div className="relative">
+            {/* แสงฟ้าจางๆ ด้านหลังรูป */}
+            <div aria-hidden className="absolute -inset-6 rounded-full bg-accent/40 blur-3xl" />
+            <Image
+              src={profile.avatar}
+              alt={localize(profile.name, locale)}
+              width={160}
+              height={160}
+              priority
+              className="relative size-32 rounded-full border-4 border-accent-soft object-cover sm:size-36"
+            />
+          </div>
+        </DetectionFrame>
 
         <h1 className="mt-6 text-center text-3xl font-bold tracking-tight">
           {localize(profile.name, locale)}

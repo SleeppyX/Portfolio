@@ -5,6 +5,7 @@ import { Contact } from "@/components/sections/Contact";
 import { Experience } from "@/components/sections/Experience";
 import { FeaturedProjects } from "@/components/sections/FeaturedProjects";
 import { Hero } from "@/components/sections/Hero";
+import { Lab } from "@/components/sections/Lab";
 import { Skills } from "@/components/sections/Skills";
 import type { Locale } from "@/i18n/routing";
 
@@ -26,6 +27,7 @@ export default async function PortfolioPage({ params }: PageProps<"/[locale]/por
       <Hero />
       <About />
       <Skills />
+      <Lab />
       <Experience />
       <FeaturedProjects />
       <Contact />
