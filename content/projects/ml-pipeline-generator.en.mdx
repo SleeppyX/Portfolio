@@ -1,29 +1,50 @@
 ---
 title: Explainable & Interactive ML Pipeline Generator
-summary: A Streamlit app that builds a machine learning pipeline from an uploaded dataset and explains each step. Senior project, team of two; I built the data cleaning stage.
+summary: A Streamlit app that turns an uploaded dataset into a full machine learning pipeline and explains every step. Senior project, built together by a team of two.
 cover: /images/projects/ml-pipeline-generator.svg
-tags: [Python, Streamlit, pandas, Machine Learning]
+tags: [Python, Streamlit, pandas, scikit-learn, Machine Learning]
 date: "2026-06"
 repo: https://github.com/Sittikorn0/Explainable_and_Interactive_ML_Pipeline_Generator
 ---
 
 ## Overview
 
-Users upload a dataset and the app walks them through a full machine learning pipeline:
-cleaning, encoding, scaling, feature selection, training, and evaluation. A rule-based
-reasoning engine recommends a choice at each step and explains why, so people without an
-ML background can still understand how the final model was built.
+Users upload a dataset and the app walks them through a complete machine learning pipeline,
+from cleaning the data to training and comparing models. A rule-based reasoning engine
+recommends a choice at each step and explains why, so people without an ML background can
+still understand how the final model was built.
 
-Models are trained with AutoGluon, XGBoost, LightGBM, CatBoost, and scikit-learn.
-This was our senior project for the Computer Engineering and AI degree at PIM, built by a team of two.
+This was our senior project for the Computer Engineering and AI degree at PIM. A friend and
+I designed and built the whole project together.
 
-## My part: data cleaning
+## Project structure
 
-- **Missing values:** fill per column with mean, median, mode, or forward fill, or drop rows,
-  with only the strategies that fit each column's data type
-- **Outliers:** detect with Z-Score or IQR depending on how skewed the column is, then clip
-  or drop them
-- **Duplicates and unused columns:** find and remove them in one click
-- **Recommendations:** the rule engine suggests a strategy for every column, and
-  "Apply All" or "Apply Selected" applies them in a single pass
-- **Before/after view:** a summary table highlights how the data changed after cleaning
+[![Project structure: Data Preparation, Model Process, and Insight](/images/projects/ml-pipeline-structure.webp)](/images/projects/ml-pipeline-structure.webp)
+
+_Click the diagram to open it at full size._
+
+## 1. Data Preparation
+
+- **Upload:** CSV, XLSX, XLS, or JSON files, with a data preview and target column selection
+- **Data cleaning:** data profiling, then dropping columns, removing duplicates, and handling
+  missing values and outliers
+- **Exploratory data analysis:** distributions, feature-vs-target relationships, and correlation
+- **Data transformation:** encoding (one-hot, label, ordinal), scaling (log, standard, min-max,
+  robust), and feature selection with drop recommendations
+
+## 2. Model Process
+
+- **Data splitting:** 80% training set, 20% test set
+- **Model competition:** trains many models for classification or regression, such as random
+  forest, logistic regression, SVM, kNN, gradient boosting, XGBoost, LightGBM, and CatBoost,
+  with hyperparameter tuning
+- **Evaluation:** a leaderboard on the training set, then accuracy, precision, recall, and F1
+  for classification, or MSE, RMSE, and R² for regression, plus a confusion matrix
+
+## 3. Insight
+
+- **Feature importance:** permutation importance and the top 3 most important features
+- **Data visualization:** per-column charts and a correlation heat map
+- **Model guide:** the strengths, weaknesses, and evaluation score of the chosen model
+- **Pipeline trace:** a step-by-step log of upload, cleaning, transformation, and modeling,
+  with an explanation for each decision

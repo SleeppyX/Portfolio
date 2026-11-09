@@ -6,19 +6,18 @@
   <text x="600" y="190" font-family="system-ui, sans-serif" font-size="54" font-weight="700" fill="#ffffff" text-anchor="middle">Explainable ML Pipeline</text>
   <text x="600" y="240" font-family="system-ui, sans-serif" font-size="28" fill="#cde4ff" text-anchor="middle">Interactive AutoML that explains every step</text>
   <g font-family="ui-monospace, monospace" font-size="26" fill="#ffffff" text-anchor="middle">
-    <rect x="95" y="345" width="210" height="90" rx="14" fill="#ffffff22" stroke="#9fd0ff" stroke-width="2"/>
-    <text x="200" y="400">Upload</text>
-    <rect x="365" y="345" width="210" height="90" rx="14" fill="#58a6ff" stroke="#ffffff" stroke-width="3"/>
-    <text x="470" y="400" font-weight="700">Clean</text>
-    <rect x="635" y="345" width="210" height="90" rx="14" fill="#ffffff22" stroke="#9fd0ff" stroke-width="2"/>
-    <text x="740" y="400">Train</text>
-    <rect x="905" y="345" width="210" height="90" rx="14" fill="#ffffff22" stroke="#9fd0ff" stroke-width="2"/>
-    <text x="1010" y="400">Explain</text>
+    <rect x="110" y="345" width="280" height="96" rx="14" fill="#ffffff22" stroke="#9fd0ff" stroke-width="2"/>
+    <text x="250" y="402">Data Preparation</text>
+    <rect x="460" y="345" width="280" height="96" rx="14" fill="#ffffff22" stroke="#9fd0ff" stroke-width="2"/>
+    <text x="600" y="402">Model Process</text>
+    <rect x="810" y="345" width="280" height="96" rx="14" fill="#58a6ff" stroke="#ffffff" stroke-width="3"/>
+    <text x="950" y="402" font-weight="700">Insight</text>
   </g>
   <g stroke="#9fd0ff" stroke-width="3" fill="#9fd0ff">
-    <line x1="305" y1="390" x2="355" y2="390"/><path d="M355 382 l10 8 -10 8z"/>
-    <line x1="575" y1="390" x2="625" y2="390"/><path d="M625 382 l10 8 -10 8z"/>
-    <line x1="845" y1="390" x2="895" y2="390"/><path d="M895 382 l10 8 -10 8z"/>
+    <line x1="390" y1="393" x2="448" y2="393"/><path d="M448 385 l10 8 -10 8z"/>
+    <line x1="740" y1="393" x2="798" y2="393"/><path d="M798 385 l10 8 -10 8z"/>
   </g>
-  <text x="470" y="480" font-family="ui-monospace, monospace" font-size="20" fill="#cde4ff" text-anchor="middle">my part</text>
+  <text x="250" y="485" font-family="ui-monospace, monospace" font-size="18" fill="#cde4ff" text-anchor="middle">clean · EDA · transform</text>
+  <text x="600" y="485" font-family="ui-monospace, monospace" font-size="18" fill="#cde4ff" text-anchor="middle">split · compete · evaluate</text>
+  <text x="950" y="485" font-family="ui-monospace, monospace" font-size="18" fill="#cde4ff" text-anchor="middle">importance · guide · trace</text>
 </svg>
