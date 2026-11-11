@@ -4,9 +4,9 @@ import { About } from "@/components/sections/About";
 import { AutomatedTesting } from "@/components/sections/AutomatedTesting";
 import { Contact } from "@/components/sections/Contact";
 import { Experience } from "@/components/sections/Experience";
-import { FeaturedProjects } from "@/components/sections/FeaturedProjects";
 import { Hero } from "@/components/sections/Hero";
 import { Lab } from "@/components/sections/Lab";
+import { Projects } from "@/components/sections/Projects";
 import { Skills } from "@/components/sections/Skills";
 import type { Locale } from "@/i18n/routing";
 
@@ -31,7 +31,7 @@ export default async function PortfolioPage({ params }: PageProps<"/[locale]/por
       <AutomatedTesting />
       <Lab />
       <Experience />
-      <FeaturedProjects />
+      <Projects />
       <Contact />
     </>
   );

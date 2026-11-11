@@ -14,7 +14,7 @@ function fakeDuration(id: string) {
   return 12 + (Math.abs(hash) % 48);
 }
 
-/** กรอบมาตรฐานของแต่ละส่วนบนหน้าแรก (ระยะห่าง + หัวข้อ + animation) */
+/** กรอบมาตรฐานของแต่ละส่วนบนหน้า Portfolio (ระยะห่าง + หัวข้อ + animation) */
 export function Section({ id, title, children }: SectionProps) {
   return (
     <section id={id} className="scroll-mt-20 py-16 sm:py-24">

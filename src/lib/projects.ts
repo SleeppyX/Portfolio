@@ -27,7 +27,6 @@ const baseSchema = z.object({
   cover: z.string().startsWith("/"),
   tags: z.array(z.string()).min(1),
   date: yearMonth,
-  featured: z.boolean().default(false),
   demo: z.url().optional(),
   repo: z.url().optional(),
 });
@@ -103,14 +102,4 @@ export function getAllProjects(locale: Locale): ProjectMeta[] {
     .filter((project): project is Project => project !== null)
     .map(({ content: _content, isFallback: _isFallback, ...meta }) => meta)
     .sort((a, b) => b.date.localeCompare(a.date));
-}
-
-/** ผลงานที่ตั้ง featured: true สำหรับโชว์บนหน้าแรก */
-export function getFeaturedProjects(locale: Locale): ProjectMeta[] {
-  return getAllProjects(locale).filter((project) => project.featured);
-}
-
-/** tag ทั้งหมดที่ใช้ในผลงาน (ไม่ซ้ำ เรียงตามตัวอักษร) สำหรับปุ่มกรอง */
-export function getAllTags(projects: ProjectMeta[]): string[] {
-  return [...new Set(projects.flatMap((project) => project.tags))].sort();
 }

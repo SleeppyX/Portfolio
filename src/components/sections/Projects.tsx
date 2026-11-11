@@ -4,7 +4,7 @@ import { Section } from "@/components/ui/Section";
 import { getAllProjects } from "@/lib/projects";
 
 /** ผลงานบนหน้า Portfolio: แสดงทุกชิ้น เรียงจากใหม่ไปเก่า */
-export async function FeaturedProjects() {
+export async function Projects() {
   const t = await getTranslations("Projects");
   const locale = await getLocale();
   const projects = getAllProjects(locale);

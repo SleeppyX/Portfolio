@@ -18,6 +18,15 @@ npm run dev     # เปิดเว็บที่ http://localhost:3000
 | `npm run format` | จัดรูปแบบโค้ดทุกไฟล์ด้วย Prettier                  |
 | `npm run check`  | ตรวจ lint + type + format ก่อน push                |
 
+## หน้าเว็บ
+
+| URL                   | หน้า                                                                               |
+| --------------------- | ---------------------------------------------------------------------------------- |
+| `/en`, `/th`          | หน้าแรก: Bio แบบ Linktree (รูป สถานะ งานปัจจุบัน เพลง ลิงก์ social)                |
+| `/en/portfolio`       | Portfolio: Hero, About, Skills, Automated Testing, Lab, Experience, ผลงาน, Contact |
+| `/en/projects/<slug>` | รายละเอียดผลงานแต่ละชิ้น                                                           |
+| URL อื่นๆ             | หน้า 404                                                                           |
+
 ## โครงสร้างโฟลเดอร์
 
 ```
@@ -25,24 +34,31 @@ content/projects/        ← ผลงาน (ไฟล์ .mdx 1 ไฟล์�
 messages/                ← ข้อความบนปุ่ม/เมนู/หัวข้อ (en.json, th.json)
 public/
   images/                ← รูปโปรไฟล์ และ images/projects/ รูปปกผลงาน
-  resume/                ← ไฟล์ Resume (resume-en.pdf, resume-th.pdf)
+  videos/                ← วิดีโอเทสต์ Cypress (สร้างด้วย e2e/recorder)
 src/
-  data/                  ← ข้อมูลส่วนตัว ทักษะ ประสบการณ์
-    profile.ts           ← ชื่อ ตำแหน่ง About อีเมล ลิงก์ GitHub/LinkedIn
+  data/                  ← ข้อมูลที่แก้บ่อย
+    profile.ts           ← ชื่อ ตำแหน่ง About อีเมล สถานะ เพลง Spotify ลิงก์ social
     skills.ts            ← ทักษะแบ่งกลุ่ม
     experience.ts        ← Timeline งานและการศึกษา
+    interests.ts         ← ความสนใจใน section "Lab & Interests"
+    test-videos.json     ← ความยาววิดีโอเทสต์ + เวลาเริ่มของแต่ละเทสต์ (ตัวอัดสร้างให้ ไม่ต้องแก้เอง)
   app/[locale]/          ← หน้าเว็บ (routes)
-    page.tsx             ← หน้าแรก (เรียงลำดับ section ที่นี่)
-    projects/page.tsx    ← หน้ารวมผลงาน + ตัวกรอง
+    page.tsx             ← หน้าแรก (Bio)
+    portfolio/page.tsx   ← หน้า Portfolio (เรียงลำดับ section ที่นี่)
     projects/[slug]/     ← หน้ารายละเอียดผลงาน
   components/
-    sections/            ← แต่ละส่วนของหน้าแรก (Hero, About, Skills, ...)
-    projects/            ← การ์ดผลงาน, ตัวกรอง, ตัวแสดง MDX
+    bio/                 ← ชิ้นส่วนของหน้า Bio (ท้องฟ้ากลางคืน, กรอบ detection, การ์ด Spotify)
+    sections/            ← แต่ละส่วนของหน้า Portfolio (Hero, About, Skills, ...)
+    projects/            ← การ์ดผลงาน, ตัวแสดง MDX
     layout/              ← Header, Footer, ปุ่มสลับภาษา/ธีม
-    ui/                  ← ชิ้นส่วนเล็กที่ใช้ซ้ำ (Button, Tag, Section, ...)
+    ui/                  ← ชิ้นส่วนเล็กที่ใช้ซ้ำ (Button, Tag, Section, icon, ...)
   lib/                   ← ฟังก์ชันช่วย (อ่านไฟล์ผลงาน, จัดรูปแบบวันที่, เลือกภาษา)
   i18n/                  ← ตั้งค่าระบบภาษา
   app/globals.css        ← สีของทั้งเว็บ
+e2e/
+  cypress/               ← เทสต์ E2E ทั้งระบบ (หน้า Bio, Portfolio, ผลงาน, 404)
+  recorder/              ← ตัวอัดวิดีโอเทสต์สำหรับ section Automated Testing
+.github/workflows/e2e.yml ← GitHub Actions: build เว็บแล้วรัน Cypress ทุกครั้งที่ push
 ```
 
 **หลักง่ายๆ:** เปลี่ยน _ข้อมูล_ แก้ใน `src/data/`, `content/` หรือ `messages/` ส่วน _หน้าตา_ แก้ใน `src/components/`
@@ -54,8 +70,10 @@ src/
 แก้ `src/data/profile.ts` ข้อความที่มีสองภาษาเขียนเป็น `{ en: "...", th: "..." }`
 
 - รูปโปรไฟล์: วางไฟล์ใน `public/images/` แล้วแก้ `avatar`
-- Resume: วางไฟล์แทนที่ `public/resume/resume-en.pdf` และ `resume-th.pdf`
-  ถ้ามีไฟล์เดียว ให้ชี้ `resume.en` กับ `resume.th` ไปที่ไฟล์เดียวกัน
+- Resume: ตอนนี้ตั้งเป็น `null` (ซ่อนปุ่ม Download resume) ถ้าจะเปิด ให้วางไฟล์ใน `public/resume/`
+  แล้วแก้ `resume` เป็น `{ en: "/resume/resume-en.pdf", th: "/resume/resume-th.pdf" }`
+  (มีไฟล์เดียวก็ชี้ทั้งสองภาษาไปที่ไฟล์เดียวกัน)
+- สถานะใต้ชื่อบนหน้า Bio: แก้ `status` ส่วนเพลง: แก้ `spotify` (ลิงก์เพลงจาก Spotify หรือ `null` เพื่อซ่อน)
 
 ### เพิ่มผลงานใหม่
 
@@ -69,7 +87,6 @@ src/
    cover: /images/projects/my-app.png
    tags: [Next.js, TypeScript]
    date: "2026-01" # ปี-เดือน ใช้เรียงลำดับ (ใหม่สุดขึ้นก่อน)
-   featured: true # true = โชว์บนหน้าแรก (ไม่ใส่ = false)
    demo: https://... # ไม่บังคับ
    repo: https://github.com/... # ไม่บังคับ
    ---
@@ -113,10 +130,36 @@ src/
 
 แก้ตัวแปร `--accent` ใน `src/app/globals.css` (มีสองที่: โหมดสว่าง `:root` และโหมดมืด `.dark`)
 
-### เพิ่ม/ลบ/สลับ section บนหน้าแรก
+### เพิ่ม/ลบ/สลับ section บนหน้า Portfolio
 
-แก้รายการ component ใน `src/app/[locale]/page.tsx`
+แก้รายการ component ใน `src/app/[locale]/portfolio/page.tsx`
 ถ้าเพิ่ม section ใหม่ ให้เพิ่ม id ใน `navItems` ของ `src/components/layout/Header.tsx` ด้วย
+
+### รันเทสต์ E2E (Cypress)
+
+เปิดเว็บไว้ก่อน (`npm run dev` หรือ `npm run build && npm run start`) แล้วรัน
+
+```bash
+cd e2e/cypress
+npm install     # ติดตั้งครั้งแรก
+npx cypress run # รันทุกเทสต์แบบไม่เปิดหน้าต่าง (หรือ npx cypress open เพื่อดูทีละขั้น)
+```
+
+เทสต์อยู่ใน `e2e/cypress/e2e/` แยกไฟล์ตามหน้า (`bio.cy.js`, `portfolio.cy.js`, `projects.cy.js`)
+GitHub Actions จะรันชุดเดียวกันนี้ทุกครั้งที่ push และสถานะล่าสุดแสดงใน section Automated Testing
+
+### อัดวิดีโอเทสต์ใหม่ (หลังแก้เทสต์)
+
+เปิดเว็บไว้ที่ http://localhost:3000 แล้วรัน
+
+```bash
+cd e2e/recorder
+npm install     # ติดตั้งครั้งแรก
+npm run record
+```
+
+ตัวอัดจะรัน Cypress แบบช้าลงให้ดูทัน ต่อวิดีโอทุกหน้าเป็นไฟล์เดียว แล้วเขียนทับ
+`public/videos/cypress.mp4`, `cypress.jpg` และ `src/data/test-videos.json` ให้เอง
 
 ## Deploy (GitHub + Vercel)
 
@@ -133,4 +176,5 @@ src/
 - [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) + [gray-matter](https://github.com/jonschlinkert/gray-matter): อ่านผลงานจากไฟล์ MDX
 - [Zod](https://zod.dev): ตรวจ frontmatter ของผลงาน
 - [next-themes](https://github.com/pacocoursey/next-themes): โหมดมืด/สว่าง
+- [Cypress](https://www.cypress.io) + GitHub Actions: เทสต์ E2E ทั้งระบบ
 - ESLint + Prettier

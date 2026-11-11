@@ -10,7 +10,7 @@ export type ExperienceItem = {
   /** ไม่ใส่ = ยังทำอยู่ (แสดงเป็น Present / ปัจจุบัน) */
   end?: string;
   description: Localized;
-  /** เกรดเฉลี่ยสะสม (ใส่เฉพาะ education) แสดงใน Timeline และ Test Runner บนหน้าแรก */
+  /** เกรดเฉลี่ยสะสม (ใส่เฉพาะ education) แสดงใน Timeline และ Test Runner บนหน้า Portfolio */
   gpax?: number;
 };
 

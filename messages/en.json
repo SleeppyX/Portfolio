@@ -29,11 +29,6 @@
   },
   "Projects": {
     "title": "Projects",
-    "viewAll": "View all projects",
-    "allTitle": "All projects",
-    "allDescription": "Everything I've built, newest first. Filter by technology.",
-    "filterAll": "All",
-    "empty": "No projects match this filter.",
     "demo": "Live demo",
     "repo": "Source code",
     "back": "Back to projects",
